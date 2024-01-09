@@ -1,0 +1,43 @@
+name: kdevbot[bot]
+
+on:
+  workflow_call:
+    inputs:
+      ref:
+        type: string
+        default: main
+
+jobs:
+  kdevbot:
+    name: kdevbot[bot]
+    runs-on: ubuntu-latest
+    if: >-
+      github.repository_owner == 'KatsuteDev' &&
+      !endsWith(github.actor, '[bot]')
+    steps:
+      - name: Authenticate
+        id: auth
+        if: github.repository_owner == 'KatsuteDev'
+        uses: actions/create-github-app-token@v1
+        with:
+          app-id: ${{ secrets.KDEVBOT_APP_ID }}
+          private-key: ${{ secrets.KDEVBOT_PRIVATE_KEY }}
+          owner: KatsuteDev
+
+      - name: Checkout Repository
+        uses: actions/checkout@v4
+        with:
+          token: ${{ steps.auth.outputs.token }}
+
+      - name: Checkout Action
+        uses: actions/checkout@v4
+        with:
+          token: ${{ steps.auth.outputs.token }}
+          repository: KatsuteDev/kdevbot-internal
+          ref: ${{ inputs.ref }}
+          path: kdevbot
+
+      - name: kdevbot[bot]
+        uses: ./kdevbot
+        with:
+          token: ${{ steps.auth.outputs.token }}
