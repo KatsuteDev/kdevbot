@@ -5,11 +5,11 @@ on:
     inputs:
       ref:
         type: string
-        default: main
+        default: fb94729d187156775d982fc37fe79782eb3d894a
 
 jobs:
   kdevbot:
-    name: kdevbot[bot]
+    name: kdevbot[bot] (${{ inputs.ref }})
     runs-on: ubuntu-latest
     if: >-
       github.repository_owner == 'KatsuteDev' &&
