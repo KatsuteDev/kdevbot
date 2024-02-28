@@ -5,7 +5,7 @@ on:
     inputs:
       ref:
         type: string
-        default: 560b1dd16757370879013c0fbc05f94810267021
+        default: 6d28e28b02556b107150b5dba1b5f6474763ff65
 
 jobs:
   kdevbot:
@@ -35,9 +35,9 @@ jobs:
           token: ${{ steps.auth.outputs.token }}
           repository: KatsuteDev/kdevbot-internal
           ref: ${{ inputs.ref }}
-          path: kdevbot
+          path: .kdevbot
 
       - name: kdevbot[bot]
-        uses: ./kdevbot
+        uses: ./.kdevbot
         with:
           token: ${{ steps.auth.outputs.token }}
