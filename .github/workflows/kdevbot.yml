@@ -38,6 +38,6 @@ jobs:
           path: .kdevbot
 
       - name: kdevbot[bot]
-        uses: ./.kdevbot
+        uses: .kdevbot
         with:
           token: ${{ steps.auth.outputs.token }}
