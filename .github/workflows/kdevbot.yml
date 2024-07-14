@@ -9,7 +9,7 @@ on:
 
 jobs:
   kdevbot:
-    name: kdevbot[bot] (${{ inputs.ref[0:7] }})
+    name: kdevbot[bot] (${{ inputs.ref }})
     runs-on: ubuntu-latest
     if: >-
       github.repository_owner == 'KatsuteDev' &&
