@@ -18,7 +18,7 @@ jobs:
       - name: Authenticate
         id: auth
         if: github.repository_owner == 'KatsuteDev'
-        uses: actions/create-github-app-token@v1
+        uses: actions/create-github-app-token@v2
         with:
           app-id: ${{ secrets.KDEVBOT_APP_ID }}
           private-key: ${{ secrets.KDEVBOT_PRIVATE_KEY }}
