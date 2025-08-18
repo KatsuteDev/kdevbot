@@ -25,12 +25,12 @@ jobs:
           owner: KatsuteDev
 
       - name: Checkout Repository
-        uses: actions/checkout@v4
+        uses: actions/checkout@v5
         with:
           token: ${{ steps.auth.outputs.token }}
 
       - name: Checkout Action
-        uses: actions/checkout@v4
+        uses: actions/checkout@v5
         with:
           token: ${{ steps.auth.outputs.token }}
           repository: KatsuteDev/kdevbot-internal
