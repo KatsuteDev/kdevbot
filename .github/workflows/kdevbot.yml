@@ -5,7 +5,7 @@ on:
     inputs:
       ref:
         type: string
-        default: 8731ca9fc0b12464f44d14af5c9802d381e90547
+        default: 6bd49597012bebdb33370900ae6a4658f1edf61c
 
 jobs:
   kdevbot:
@@ -20,7 +20,7 @@ jobs:
         if: github.repository_owner == 'KatsuteDev'
         uses: actions/create-github-app-token@v3
         with:
-          app-id: ${{ secrets.KDEVBOT_APP_ID }}
+          client-id: ${{ secrets.KDEVBOT_APP_ID }}
           private-key: ${{ secrets.KDEVBOT_PRIVATE_KEY }}
           owner: KatsuteDev
 
