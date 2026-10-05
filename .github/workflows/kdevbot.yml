@@ -5,7 +5,7 @@ on:
     inputs:
       ref:
         type: string
-        default: 0a21cdb2b6dc52948d89528d192f238ff8546e34
+        default: edb31952a3a38d684e7057d031efd9b312356424
 
 jobs:
   kdevbot:
